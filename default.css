@@ -23,8 +23,8 @@ h2 {
     padding: 45px;
   }
 
-  .markdown-body .highlight pre, .markdown-body pre {
-    background-color: rgba(110,118,129,0.4);
+  pre {
+    background-color: rgba(110,118,129,0.4) !important;
   }
 
   @media (max-width: 767px) {

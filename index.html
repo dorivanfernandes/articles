@@ -20,7 +20,9 @@
 
         function myFunction(doc) {
           document.getElementById("articlesList").innerHTML = 
-          `<zero-md src='${doc}' > 
+          `
+          <a href="/articles"><img border="0" alt="Voltar" src="voltar.png" height="30px"></a>
+          <zero-md src='${doc}' > 
             <template> 
               <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/github-markdown-css@5.2.0/github-markdown-dark.css'> 
               <link rel='stylesheet' href='default.css'> 
