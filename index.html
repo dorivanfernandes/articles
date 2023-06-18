@@ -2,14 +2,24 @@
 <html>
   <head>
     <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@2/dist/zero-md.min.js" ></script>
+    <link rel='stylesheet' href='default.css'> 
   </head>
 
-  <body style="background-color: #0D1A26">
-    <zero-md src="/articles/docs/Laziness.md">
-      <template>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.2.0/github-markdown-dark.css">
-        <link rel="stylesheet" href="default.css">
-      </template>
-    </zero-md>
+  <body style="background-color: #0D1A26; color:white">
+    <div id="articlesList">
+      <p onclick="myFunction('/articles/docs/Laziness.md')">Laziness</p>
+    </div>
+    <script>
+
+        function myFunction(doc) {
+          document.getElementById("articlesList").innerHTML = 
+          `<zero-md src='${doc}' > 
+            <template> 
+              <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/github-markdown-css@5.2.0/github-markdown-dark.css'> 
+              <link rel='stylesheet' href='default.css'> 
+            </template> 
+          </zero-md>`
+        }
+    </script>
   </body>
 </html>
