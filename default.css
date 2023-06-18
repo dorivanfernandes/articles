@@ -23,6 +23,10 @@ h2 {
     padding: 45px;
   }
 
+  a {
+    padding: 45px;
+  }
+
   pre {
     background-color: rgba(110,118,129,0.4) !important;
   }

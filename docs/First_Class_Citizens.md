@@ -1,4 +1,4 @@
-# First-class citizens
+# Functions as first-class citizens
 
 # O que é?
 
