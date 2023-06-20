@@ -33,9 +33,22 @@ h2 {
     background-color: rgba(110,118,129,0.4) !important;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 1000px) and (max-resolution: 500dpi){
     .markdown-body {
       padding: 15px;
+      font-size: 30px;
+    }
+
+    #articlesList {
+      font-size: 30px;
+    }
+
+    a {
+      padding: 15px;
+    }
+
+    #back {
+      height: 60px;
     }
   }
 

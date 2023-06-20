@@ -5,31 +5,36 @@
     <link rel='stylesheet' href='default.css'> 
   </head>
 
-  <body>
-    <div id="articleContent">
-      <div id="articlesList">
-        <h2 onclick="openMd('/articles/docs/Immutability.md')">💎 Immutability</h2>
-        <h2 onclick="openMd('/articles/docs/Pure_Functions.md')">😇 Pure functions</h2>
-        <h2 onclick="openMd('/articles/docs/First_Class_Citizens.md')">🥇 Functions as first-class citizens</h2>
-        <h2 onclick="openMd('/articles/docs/Higher_Order_Functions.md')">🆙 Higher order functions</h2>
-        <h2 onclick="openMd('/articles/docs/Laziness.md')">🦥 Laziness</h2>
-        <h2 onclick="openMd('/articles/docs/Type_Theory.md')">⌨️ Type Theory</h2>
-        <h2 onclick="openMd('/articles/docs/ADT.md')">🖇️ ADT (Algebraic Data Type)</h2>
-        <h2 onclick="openMd('/articles/docs/Reactive_Programming.md')">⚡️ Reactive Programming</h2>
-      </div>
-    </div>
+  <body onload="openList()">
+    <div id="articleContent"></div>
     <script>
 
         function openMd(doc) {
           document.getElementById("articleContent").innerHTML = 
           `
-          <a href="/articles"><img border="0" alt="Voltar" src="voltar.png" height="30px"></a>
+          <a href="/articles"><img id="back" border="0" alt="Voltar" src="voltar.png" height="30px"></a>
           <zero-md src='${doc}' > 
             <template> 
               <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/github-markdown-css@5.2.0/github-markdown-dark.css'> 
               <link rel='stylesheet' href='default.css'> 
             </template> 
           </zero-md>`
+        }
+
+        function openList() {
+          document.getElementById("articleContent").innerHTML = 
+          `
+          <div id="articlesList">
+            <h2 onclick="openMd('/articles/docs/Immutability.md')">💎 Immutability</h2>
+            <h2 onclick="openMd('/articles/docs/Pure_Functions.md')">😇 Pure functions</h2>
+            <h2 onclick="openMd('/articles/docs/First_Class_Citizens.md')">🥇 Functions as first-class citizens</h2>
+            <h2 onclick="openMd('/articles/docs/Higher_Order_Functions.md')">🆙 Higher order functions [WIP]</h2>
+            <h2 onclick="openMd('/articles/docs/Laziness.md')">🦥 Laziness</h2>
+            <h2 onclick="openMd('/articles/docs/Type_Theory.md')">⌨️ Type Theory</h2>
+            <h2 onclick="openMd('/articles/docs/ADT.md')">🖇️ ADT (Algebraic Data Type)</h2>
+            <h2 onclick="openMd('/articles/docs/Reactive_Programming.md')">⚡️ Reactive Programming [WIP]</h2>
+          </div>
+          `
         }
     </script>
   </body>
