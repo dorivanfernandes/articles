@@ -8,6 +8,8 @@ body {
   font-size: 16px;
   line-height: 1.5;
   word-wrap: break-word;
+  position: relative;
+  height: 100vh;
 }
 
 h2 {
@@ -35,4 +37,11 @@ h2 {
     .markdown-body {
       padding: 15px;
     }
+  }
+
+  #articlesList {
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+    display: inline-grid;
   }
