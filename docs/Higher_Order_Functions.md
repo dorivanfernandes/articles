@@ -18,34 +18,26 @@ fun main() {
         Person("Pedro", 22)
     )
 
-    val adults = filterPersons(persons) { person ->
-        person.age >= 18
-    }
-    println("Adults: $adults")
+    val moreThan30 = filterPersons { person -> person.age > 30 }
 
-    val under30 = filterPersons(persons) { person ->
-        person.age < 30
-    }
-    println("Under 30: $under30")
+    println(moreThan30(persons))
 }
 
 data class Person(val name: String, val age: Int)
 
-fun filterPersons(
-    persons: List<Person>, 
-    operation: (Person) -> Boolean
-): List<Person> {
+fun filterPersons(operation: (Person) -> Boolean): (List<Person>) -> List<Person> = {
     val filteredPersons = mutableListOf<Person>()
-    persons.forEach { person ->
+    it.forEach { person ->
         if (operation(person)) {
             filteredPersons.add(person)
         }
     }
-    return filteredPersons
+
+    filteredPersons
 }
 
 ```
 
-Nesse exemplo temos a função `filterPersons` que recebe como parâmetro uma lista de pessoas (com nome e idade) e também uma função. Essa função recebida no parâmetro será executada determinando se `Person` deverá ser retornada ou não. 
+Nesse exemplo temos a função `filterPersons` que recebe como parâmetro uma função, que é a lógica para filtrar as pessoas. Essa função recebida no parâmetro é utilizada para gerar uma nova função com a regra repassada, determinando se `Person` deverá ser retornada ou não. 
 
 Como `filterPersons` recebe outra função como parâmetro, a lógica para filtragem pode variar de acordo com a necessidade sem precisar escrever várias funções parecidas apenas por pequenas mudanças na regra de filtragem. Toda a lógica de criar uma lista de "filtrados", percorrer todos os itens da lista, chamar a função que filtra e adicionar o que for verdadeiro a lista de "filtrados" só precisa ser escrito uma vez, e o que importa, que é a lógica para filtrar, é recebido no parâmetro como função. Isso mostra o quanto higher order functions reduz a repetição de código aplicando as mesma estrutura para diferentes funções.
